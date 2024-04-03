@@ -310,7 +310,7 @@ def main():
     st.title("IE506: Midterm Project Review: GKEAL Implementation")
     st.write("Team Name: ML_Coders , Roll no: 22M2021 & 200040067 ")
     st.write("Upload an image and let the model predict its class.")
-    metadata_path = 'Cifar100/meta' # change this path`\
+    metadata_path = 'meta' # change this path`\
     metadata = unpickle(metadata_path)
     fine_class_dict = dict(list(enumerate(metadata[b'fine_label_names'])))
     classes = list(fine_class_dict.values())
@@ -320,7 +320,7 @@ def main():
                                     momentum=args.momentum,
                                     weight_decay=args.weight_decay)
 
-    checkpoint = torch.load("save_model/cifar100/resnet32/1-10_9-59-52-757/checkpoint.pth.tar", map_location='cpu')
+    checkpoint = torch.load("checkpoint.pth.tar", map_location='cpu')
 
     model.load_state_dict(checkpoint['state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer'])
@@ -336,7 +336,7 @@ def main():
                                     momentum=args.momentum,
                                     weight_decay=args.weight_decay)
 
-        checkpoint = torch.load("save_model/cifar100/resnet32/1-10_9-59-52-757/checkpoint.pth.tar", map_location='cpu')
+        checkpoint = torch.load("checkpoint.pth.tar", map_location='cpu')
 
         model.load_state_dict(checkpoint['state_dict'])
         optimizer.load_state_dict(checkpoint['optimizer'])
